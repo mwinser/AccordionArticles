@@ -1,0 +1,32 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+#accordion-container {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+    overflow: hidden;
+    width: 100vw;
+}
+.panel {
+    flex-basis: 1vw;
+    flex-grow: 1;
+    border: 1px solid gray;
+    text-align: center;
+    opacity: 1;
+    transition: flex-grow 1s ease-in-out, opacity .5s ease-in, width 1s ease-in;
+}
+.panel.active {
+    flex-grow: 6;
+}
+.panel.shrink {
+    flex-grow: 0;
+    opacity: 0;
+    width: 0
+}
+.panel.hide {
+    display: none;
+    visibility: hidden;
+}
