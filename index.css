@@ -23,6 +23,9 @@ html, body {
     transition: flex-grow 1s ease-in-out, opacity .5s ease-in, width 1s ease-in;
     cursor: pointer;
 }
+.panel:hover {
+    flex-grow: 1.05
+}
 
 .panel.active {
     flex-grow: 6;
