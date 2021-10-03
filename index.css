@@ -13,11 +13,17 @@ html, body {
 .panel {
     flex-basis: 1vw;
     flex-grow: 1;
-    border: 1px solid gray;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     text-align: center;
     opacity: 1;
+    overflow: hidden;
     transition: flex-grow 1s ease-in-out, opacity .5s ease-in, width 1s ease-in;
+    cursor: pointer;
 }
+
 .panel.active {
     flex-grow: 6;
 }
@@ -29,4 +35,10 @@ html, body {
 .panel.hide {
     display: none;
     visibility: hidden;
+}
+img {
+    overflow: hidden;
+}
+img.hide {
+    display: none;
 }
