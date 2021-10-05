@@ -39,7 +39,7 @@ allPanels.forEach((panel, i)=> {
     var image = panel.appendChild(document.createElement('img'))
     image.setAttribute('src', contentsArray[i].img )
 
-    var summary = panel.appendChild(document.createElement('p'))
+    var summary = panel.appendChild(document.createElement('div'))
     summary.innerText = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam varius quam eros, semper dapibus ante accumsan sagittis. Fusce dignissim ullamcorper leo, sit amet dignissim nisi tempus ac. Vivamus iaculis enim sit amet semper molestie. Nulla facilisi. Donec consectetur, nulla sit amet lacinia pulvinar, leo justo fringilla neque, ut elementum nisl ex ornare nunc. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Quisque egestas ipsum dui. Donec sapien ipsum, sollicitudin convallis feugiat at, rutrum eget leo. Nunc venenatis ex vitae lacinia tempor. Vestibulum suscipit lectus non odio fringilla malesuada. Duis vitae semper felis. Suspendisse potenti. Ut ornare vitae erat sed efficitur. Nulla a magna eget lectus tempor faucibus."
     summary.classList.add('summary')
     
@@ -62,6 +62,7 @@ function TogglePanelSize (event) {
         for (panel of allPanels){   
             if (panelToChange!=panel) { //hide other panels
                 panel.classList.add("shrink")
+                
                 HidePanel(panel)
             } 
             else {
@@ -73,9 +74,15 @@ function TogglePanelSize (event) {
                 
     } else { //expand panel to large(active), reduce others to small
         for (panel of allPanels){
-            panelToChange==panel 
-                ?   panel.classList.add("active") 
-                :   panel.classList.remove("active")
+            if (panelToChange==panel ) {
+                panel.classList.add("active") 
+                panel.classList.remove("small")
+            }
+            else {
+                panel.classList.remove("active")
+                panel.classList.add("small")
+            }
+                
         }
     }      
 }
@@ -87,11 +94,15 @@ function FullMenuReturn () {
         UnHidePanel(panel)
         panel.classList.remove("full")
         panel.classList.remove("active")
+        panel.classList.remove("small")
     }
 }
 
 function HidePanel (panelToHide) {
-    setTimeout (()=> {panelToHide.classList.add("hide")}, 1000)
+    setTimeout (()=> {
+        panelToHide.classList.add("hide")
+        panel.classList.remove("small")
+    }, 1000)
 }
 
 function UnHidePanel (panelToUnHide) {
