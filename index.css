@@ -2,7 +2,7 @@ html, body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background: #c4c4c4;
+    background: white;
     font-family: 'Poppins', sans-serif;
 }
 #accordion-container {
@@ -17,7 +17,7 @@ html, body {
     flex-grow: 1;
     display: grid;
     row-gap: 20vh;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     text-align: center;
     opacity: 1;
@@ -34,7 +34,7 @@ html, body {
 }
 
 .panel.shrink {
-    flex-grow: 0;
+    flex-grow: unset;
     opacity: 0;
     width: 0
 }
@@ -48,6 +48,7 @@ html, body {
     z-index: 0;
     color: white;
     font-size: x-large;
+    padding-top: 25%;
 }
 img {
     overflow: hidden;
@@ -74,7 +75,9 @@ img {
 }
 .panel.small>p.title {
     transform: rotate(90deg);
-    transition: transform 1s ease-in-out
+    padding-top: 0;
+    padding-left: 25%;
+    transition: transform 1s ease-in-out, padding-left 1s ease-in-out, padding-top 1s ease-in-out;
     
 }
 .active>.title {
@@ -90,11 +93,15 @@ img {
     .panel>.title {
         transform: rotate(90deg);
         transition: transform 1s ease-in-out, padding-left 1s ease-in-out; 
-        padding-left: 13rem;
+        padding-left: 25%;
+        padding-top: 0;
     }
     .panel.active >.title {
         transform: rotate(0);
         transition: transform 1s ease-in-out, padding-left 1s ease-in-out; 
         padding-left: 0;
+    }
+    .summary {
+        font-size: small;
     }
 }

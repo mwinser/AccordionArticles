@@ -32,11 +32,11 @@ for (var i = 1;i<=5;i++){
 }
 
 const allPanels = document.querySelectorAll('.panel')
-
+var isTransitioning = false
 
 
 allPanels.forEach((panel, i)=> {
-    panel.addEventListener('click', (event)=> TogglePanelSize(event))
+    panel.addEventListener('click', (event)=> isTransitioning ? null : TogglePanelSize(event))
     var title = panel.appendChild(document.createElement('p'))
     title.innerText = contentsArray[i].title
     title.classList.add('title')
@@ -104,13 +104,19 @@ function FullMenuReturn () {
 }
 
 function HidePanel (panelToHide) {
+    isTransitioning = true
     setTimeout (()=> {
         panelToHide.classList.add("hide")
         panel.classList.remove("small")
+        isTransitioning = false
     }, 1000)
 }
 
 function UnHidePanel (panelToUnHide) {
     panelToUnHide.classList.remove("hide")
-    setTimeout (()=> {panelToUnHide.classList.remove("shrink")}, 300)
+    isTransitioning = true
+    setTimeout (()=> {
+        panelToUnHide.classList.remove("shrink")
+        isTransitioning = false
+    }, 300)
 }
