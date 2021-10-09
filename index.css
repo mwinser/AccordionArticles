@@ -66,7 +66,7 @@ img {
     z-index: 0;
     color: white;
     opacity: 0;
-    width: 50vw;
+    width: 40vw;
     margin: auto;
     
 }
@@ -104,6 +104,6 @@ img {
         padding-left: 0;
     }
     .summary {
-        font-size: small;
+        font-size: x-small;
     }
 }
