@@ -28,6 +28,12 @@ html, body {
 .panel:hover {
     flex-grow: 1.05
 }
+.small:hover {
+    flex-grow: 1;
+}
+.small {
+    filter: brightness(90%);
+}
 
 .panel.active {
     flex-grow: 6;
@@ -84,7 +90,8 @@ img {
 .active>.title {
     transform: rotate(0);
     padding-top: 10%;
-    transition: transform 1s ease-in-out, padding-top 1s ease-in-out; 
+    padding-left: 0;
+    transition: transform 1s ease-in-out, padding-left 1s ease-in-out, padding-top 1s ease-in-out; 
 }
 .active>.summary {
     opacity: 1;
