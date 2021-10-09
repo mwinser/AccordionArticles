@@ -35,7 +35,7 @@ html, body {
 
 .panel.shrink {
     flex-grow: unset;
-    opacity: 0;
+    opacity: .4;
     width: 0
 }
 .panel.hide {
@@ -49,6 +49,7 @@ html, body {
     color: white;
     font-size: x-large;
     padding-top: 25%;
+    transition: padding-top 1s ease-in-out
 }
 img {
     overflow: hidden;
@@ -82,7 +83,8 @@ img {
 }
 .active>.title {
     transform: rotate(0);
-    transition: transform 1s ease-in-out; 
+    padding-top: 10%;
+    transition: transform 1s ease-in-out, padding-top 1s ease-in-out; 
 }
 .active>.summary {
     opacity: 1;
