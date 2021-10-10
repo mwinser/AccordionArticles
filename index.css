@@ -16,13 +16,12 @@ html, body {
     flex-basis: 1vw;
     flex-grow: 1;
     display: grid;
-    row-gap: 20vh;
     align-items: flex-start;
     justify-content: center;
     text-align: center;
     opacity: 1;
     overflow: hidden;
-    transition: flex-grow 1s ease-in-out, opacity .5s ease-in, width 1s ease-in, transform 1s ease-in-out, row-gap 1s ease-in-out; 
+    transition: flex-grow 1s ease-in-out, opacity .5s ease-in, width 1s ease-in, transform 1s ease-in-out; 
     cursor: pointer;
 }
 .panel:hover {
@@ -74,12 +73,11 @@ img {
     opacity: 0;
     width: 40vw;
     margin: auto;
+    background: rgba(0,0,0,0.2);
+    border-radius: 2rem;
     
 }
-.active {
-    row-gap: 0;
 
-}
 .panel.small>p.title {
     transform: rotate(90deg);
     padding-top: 0;
@@ -98,6 +96,13 @@ img {
     transition: opacity 1s ease-in;
 }
 
+@media (max-width: 1000px) {
+    .summary {
+        padding: 2rem;
+    }
+}
+
+
 @media (max-width: 700px) {
     .panel>.title {
         transform: rotate(90deg);
@@ -111,6 +116,7 @@ img {
         padding-left: 0;
     }
     .summary {
+        padding: 2rem 1rem;
         font-size: x-small;
     }
 }
