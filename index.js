@@ -62,8 +62,9 @@ allPanels.forEach((panel, i)=> {
 
 
 
-function TogglePanelSize (event) {
-    var panelToChange = event.path.filter(item=>item.classList ? item.classList.contains('panel') : null)[0]
+function TogglePanelSize (e) {
+    var path = e.path || (e.composedPath && e.composedPath())
+    var panelToChange = path.filter(item=>item.classList ? item.classList.contains('panel') : null)[0]
     if (panelToChange.classList.contains("full")){
         FullMenuReturn()
     }
