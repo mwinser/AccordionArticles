@@ -33,7 +33,9 @@ html, body {
 .small {
     filter: brightness(90%);
 }
-
+.no-hover:hover {
+    flex-grow: 1;
+}
 .panel.active {
     flex-grow: 6;
 }

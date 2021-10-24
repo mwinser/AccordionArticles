@@ -102,17 +102,26 @@ function TogglePanelSize (e) {
 function FullMenuReturn () {
     for (panel of allPanels){
         UnHidePanel(panel)
+        panel.classList.add("no-hover")
         panel.classList.remove("full")
         panel.classList.remove("active")
-        panel.classList.remove("small")
+        panel.classList.remove("small")    
+        ResumeHover(panel)
     }
 }
+function ResumeHover (panel){
+    setTimeout (()=> {
+        console.log("triggered")
+        panel.classList.remove("no-hover")
+    }, 1500)
+}
+
 
 function HidePanel (panelToHide) {
     isTransitioning = true
     setTimeout (()=> {
         panelToHide.classList.add("hide")
-        panel.classList.remove("small")
+        panelToHide.classList.remove("small")
         isTransitioning = false
     }, 1000)
 }
